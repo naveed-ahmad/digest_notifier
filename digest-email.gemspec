@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Naveed Ahmad}]
   s.date = %q{2012-11-29}
-  s.description = %q{send digest email to your customer.}
-  s.email = %q{naveedahmada036@gmail.com}
+  s.description = %q{Send Digest email to your customer.}
+  s.email = %q{naveed.ahmad@7vals.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md",
@@ -47,7 +47,7 @@ Gem::Specification.new do |s|
   s.licenses = [%q{MIT}]
   s.require_paths = [%q{lib}]
   s.rubygems_version = %q{1.8.6}
-  s.summary = %q{Send Digest email}
+  s.summary = %q{Send email in digest}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
