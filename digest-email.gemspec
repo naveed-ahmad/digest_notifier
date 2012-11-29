@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.md",
     "README.rdoc",
@@ -27,6 +28,7 @@ Gem::Specification.new do |s|
     "VERSION",
     "app/models/digest_email_group_model.rb",
     "app/models/digest_email_item_model.rb",
+    "digest-email.gemspec",
     "lib/digest_email.rb",
     "lib/digest_email/backend.rb",
     "lib/digest_email/message_sending.rb",
