@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "VERSION",
     "app/models/digest_email_group_model.rb",
     "app/models/digest_email_item_model.rb",
+    "digest.gemspec",
     "lib/digest_email.rb",
     "lib/digest_email/backend.rb",
     "lib/digest_email/message_sending.rb",
@@ -38,8 +39,7 @@ Gem::Specification.new do |s|
     "lib/generators/digest_email/templates/create_digest_email_items.rb",
     "lib/generators/digest_email/templates/digest_email_config.rb",
     "lib/generators/digest_email/templates/digest_email_group_model.rb",
-    "lib/generators/digest_email/templates/digest_email_item_model.rb",
-    "test/helper.rb"
+    "lib/generators/digest_email/templates/digest_email_item_model.rb"
   ]
   s.homepage = %q{http://github.com/naveed-ahmad/digest}
   s.licenses = [%q{MIT}]
