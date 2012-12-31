@@ -36,4 +36,7 @@ test/tmp
 test/version_tmp
 tmp
 
+# YARD artifacts
+.yardoc
+_yardoc
 doc/

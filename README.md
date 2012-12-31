@@ -1,4 +1,5 @@
-digest-email
-============
+=======
+digest
+======
 
-A Ruby Gem for Sending Digest Email
+Ruby wrapper to send digest emails 
