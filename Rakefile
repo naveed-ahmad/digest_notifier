@@ -14,8 +14,8 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "digest_email"
-  gem.homepage = "http://github.com/naveed-ahmad/digest-email"
+  gem.name = "digest"
+  gem.homepage = "http://github.com/naveed-ahmad/digest"
   gem.license = "MIT"
   gem.summary = %Q{Send Digest email to your customer.}
   gem.description = %Q{Send Digest email to your customer.}

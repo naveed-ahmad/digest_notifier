@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{digest_email}
+  s.name = %q{digest}
   s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -28,8 +28,6 @@ Gem::Specification.new do |s|
     "VERSION",
     "app/models/digest_email_group_model.rb",
     "app/models/digest_email_item_model.rb",
-    "digest-email.gemspec",
-    "digest_email.gemspec",
     "lib/digest_email.rb",
     "lib/digest_email/backend.rb",
     "lib/digest_email/message_sending.rb",
@@ -43,7 +41,7 @@ Gem::Specification.new do |s|
     "lib/generators/digest_email/templates/digest_email_item_model.rb",
     "test/helper.rb"
   ]
-  s.homepage = %q{http://github.com/naveed-ahmad/digest-email}
+  s.homepage = %q{http://github.com/naveed-ahmad/digest}
   s.licenses = [%q{MIT}]
   s.require_paths = [%q{lib}]
   s.rubygems_version = %q{1.8.6}
