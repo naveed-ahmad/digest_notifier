@@ -4,9 +4,7 @@ class CreateDigestEmailItems < ActiveRecord::Migration
       t.integer :digest_email_group_id
       t.text :payload
       t.text :object
-      t.datetime :sent_at
-      t.string :send_to
-
+      
       t.timestamps
     end
   end

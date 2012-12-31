@@ -20,10 +20,6 @@ module DigestEmail
       object.class.to_s
     end
 
-    def mailer_name
-      object.class.to_s
-    end
-
     def ensure_digest_group
       DigestEmailGroup.find_or_create_by_mailer_name_and_method_name mailer_name, method_name
     end

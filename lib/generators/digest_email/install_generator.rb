@@ -6,8 +6,7 @@ module DigestEmail
       source_root File.expand_path("../templates", __FILE__)
       class_option :m, :type => :boolean, :default => false, :description => "Place DigestEmail's model to models folder"
 
-
-      desc "copy migrations,models and configuration files of digest_email to your application."
+      desc "copy migrations, models and configuration files of digest_email to your application."
 
       def self.next_migration_number(dirname)
         Time.now.strftime("%Y%m%d%H%M%S")
@@ -25,8 +24,9 @@ module DigestEmail
       end
 
       def copy_migration
-        migration_template "create_digest_email_groups.rb", File.join("db", "migrate", "create_digest_email_groups.rb")
-        migration_template "create_digest_email_items.rb", File.join("db", "migrate", "create_digest_email_items.rb")
+        migration_template "create_digest_email_groups.rb",     File.join("db", "migrate", "create_digest_email_groups.rb")
+        migration_template "create_digest_email_items.rb",      File.join("db", "migrate", "create_digest_email_items.rb")
+        migration_template "create_digest_email_deliveries.rb", File.join("db", "migrate", "create_digest_email_deliveries.rb")
       end
 
       def show

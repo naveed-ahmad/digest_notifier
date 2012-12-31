@@ -1,7 +1,15 @@
 DigestEmail.configure do |config|
-  # Delete digest email after sending. default is true
-  #config.delete_digest_after_sending = true
+  #Delete digest enteries after sending email
+  #false by default
+  #config.delete_digest_after_sending = false
+  
 
-  # Get track of how many email are sent for each type of digest. Default true
+  #Track count of total sent email per group
+  #true by default
   #config.track_email_count           = true
+  
+
+  #Send one digest per group, if set to false all email would be send in one Digest.
+  #false by default
+  #config.digest_per_group            = false
 end
