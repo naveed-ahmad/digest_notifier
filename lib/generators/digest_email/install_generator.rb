@@ -1,8 +1,11 @@
 module DigestEmail
   module Generators
     class InstallGenerator < Rails::Generators::Base
+      include Rails::Generators::Migration
+
       source_root File.expand_path("../templates", __FILE__)
       class_option :m, :type => :boolean, :default => false, :description => "Place DigestEmail's model to models folder"
+
 
       desc "copy migrations,models and configuration files of digest_email to your application."
 
@@ -18,7 +21,7 @@ module DigestEmail
       end
 
       def copy_configuration
-        template "config.rb", File.join("config", "initializers", "digest_email.rb")
+        template "digest_email_config.rb", File.join("config", "initializers", "digest_email.rb")
       end
 
       def copy_migration
