@@ -47,7 +47,7 @@ Gem::Specification.new do |s|
   s.licenses = [%q{MIT}]
   s.require_paths = [%q{lib}]
   s.rubygems_version = %q{1.8.6}
-  s.summary = %q{Send email in digest}
+  s.summary = %q{Send Digest email to your customer.}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

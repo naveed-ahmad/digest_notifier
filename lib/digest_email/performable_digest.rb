@@ -21,7 +21,7 @@ module DigestEmail
     end
 
     def mailer_name
-      args
+      object.class.to_s
     end
 
     def ensure_digest_group
