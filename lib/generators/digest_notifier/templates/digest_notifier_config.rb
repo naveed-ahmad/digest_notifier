@@ -1,4 +1,6 @@
-DigestEmail.configure do |config|
+require 'digest_notifier'
+
+DigestNotifier.configure do |config|
   #Delete digest enteries after sending email
   #false by default
   #config.delete_digest_after_sending = false

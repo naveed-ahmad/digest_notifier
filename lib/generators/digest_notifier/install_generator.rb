@@ -1,4 +1,4 @@
-module DigestEmail
+module DigestNotifier
   module Generators
     class InstallGenerator < Rails::Generators::Base
       include Rails::Generators::Migration
@@ -9,18 +9,29 @@ module DigestEmail
       desc "copy migrations, models and configuration files of digest_email to your application."
 
       def self.next_migration_number(dirname)
-        Time.now.strftime("%Y%m%d%H%M%S")
+        if ActiveRecord::Base.timestamped_migrations
+          unless @prev_migration_nr
+            @prev_migration_nr = Time.now.utc.strftime("%Y%m%d%H%M%S").to_i
+          else
+            @prev_migration_nr += 1
+          end
+          @prev_migration_nr.to_s
+        else
+          (current_migration_number(dirname) + 1)
+        end
       end
-
+      
       def copy_model
         if options.m?
-          template "digest_email_group_model.rb", File.join("app", "models", "digest_email_group.rb")
-          template "digest_email_item_model.rb",  File.join("app", "models", "digest_email_item.rb")
+          Gem.find_files("digest_notifier/models/*.rb").each do |file|
+            model_name = file.slpit("/").last
+            template file, File.join("app", "models", model_name)
+          end
         end
       end
 
       def copy_configuration
-        template "digest_email_config.rb", File.join("config", "initializers", "digest_email.rb")
+        template "digest_notifier_config.rb", File.join("config", "initializers", "digest_notifier.rb")
       end
 
       def copy_migration

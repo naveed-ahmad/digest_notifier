@@ -1,7 +1,7 @@
-require 'digest_email/message_sending'
-require 'digest_email/backend'
+require 'digest_notifier/message_sending'
+require 'digest_notifier/railtie' if defined?(Rails::Railtie)
 
-module DigestEmail
+module DigestNotifier
   #Delete digest enteries after sending email
   #false by default
   mattr_accessor :delete_digest_after_sending
@@ -17,13 +17,20 @@ module DigestEmail
   mattr_accessor :digest_per_group
   @@digest_per_group            = false
 
+  #Name of your awesome application. this would be used in email subject
+  mattr_accessor :app_name
+
   class << self
     def configure
       yield self
     end
+
+    def app_name
+      @app_name ||= Rails.application.class.parent.to_s
+    end
   end
   
   ActionMailer::Base.class_eval do
-    extend DigestEmail::MessageSending
+    extend DigestNotifier::MessageSending
   end
 end
