@@ -42,11 +42,7 @@ Gem::Specification.new do |s|
     "lib/generators/digest_notifier/templates/create_digest_email_deliveries.rb",
     "lib/generators/digest_notifier/templates/create_digest_email_groups.rb",
     "lib/generators/digest_notifier/templates/create_digest_email_items.rb",
-    "lib/generators/digest_notifier/templates/digest_notifier_config.rb",
-    "nbproject/private/private.properties",
-    "nbproject/private/rake-d.txt",
-    "nbproject/project.properties",
-    "nbproject/project.xml"
+    "lib/generators/digest_notifier/templates/digest_notifier_config.rb"
   ]
   s.homepage = %q{http://github.com/naveed-ahmad/digest_notifier}
   s.licenses = [%q{MIT}]
