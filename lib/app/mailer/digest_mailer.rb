@@ -1,12 +1,12 @@
 module DigestNotifier
   class DigestMailer < ActionMailer::Base
-    default :from => "support@moviepass.com"
+    default :from => DigestNotifier.mailer_sender
     
-    def digest_notification(receiver_email)
-      @digest_items  = DigestEmailItem.joins(:digest_email_deliveries).where("digest_email_deliveries.receiver_email = ?", receiver_email)
+    def digest_notification(receiver_email, digest_items)
+      @digest_items  = digest_items
       @digest_groups = @digest_items.group(:digest_email_group_id).map &:digest_email_group
-     
-      mail :to => receiver_email, :subject => digest_email_subject
+       
+      mail :to => receiver_email, :subject => digest_email_subject, :from => DigestNotifier.mailer_sender
     end
 
     # Used to send digest email for a single digest_group

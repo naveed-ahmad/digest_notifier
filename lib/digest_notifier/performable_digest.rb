@@ -5,7 +5,7 @@ module DigestNotifier
     delegate :method, :to => :object
 
     def initialize(mailer, method_name, method_args, options)
-      raise NoMethodError, "undefined method `#{method_name}' for #{mailer.inspect}" unless mailer.respond_to?(method_name, true)
+      #raise NoMethodError, "undefined method `#{method_name}' for #{mailer.inspect}" unless mailer.respond_to?(method_name, true)
 
       self.mailer       = mailer.to_s
       self.args         = method_args

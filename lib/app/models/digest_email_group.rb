@@ -1,5 +1,5 @@
 class DigestEmailGroup < ActiveRecord::Base
-  has_many :digest_email_items
+  has_many :digest_email_items, :dependent => :destroy
 
   scope :with_pending_emails, joins(:digest_email_items)
   
@@ -12,38 +12,32 @@ class DigestEmailGroup < ActiveRecord::Base
   end
 
   def mailer_name
-    mailer_class.to_s.underscore
+    mailer_class.to_s.split('::').last.underscore
   end
 
-  def recipients
-    I18n::t("digest_notifier.#{i18n_name_space}.to", :default => recipients)
+  def digest_recipients
+    I18n::t("digest_notifier.#{i18n_name_space}.recipient", :default => recipients).to_s.split(',')
   end
 
-  def create_digest_item(performable)
+  def create_digest_items(performable)
     digest_item = digest_email_items.build :payload => performable.payload
-    recipients.each do |recipient|
-      digest_item.digest_email_deliveries.build :receiver_email => recipient
+    digest_recipients.each do |recipient|
+      digest_item.digest_email_deliveries.build :receiver_email => recipient.gsub(' ', '')
     end
     
     digest_item.save
   end
 
-  protected
-
-  def init_recipients(options)
-    recipients = options[:send_to]
-  end
-  
   class << self
     def enqueue(performable)
       digest_group = init_digest_group(performable)
-      digest_group.create_digest_item(performable)
+      digest_group.create_digest_items(performable)
     end
 
     def init_digest_group(performable)
       group = DigestEmailGroup.find_or_initialize_by_method_name_and_mailer_class performable.method_name, performable.mailer
       if group.new_record?
-        group.init_recipients performable.options
+        group.recipients =  performable.options[:send_to]
         group.save
       end
 

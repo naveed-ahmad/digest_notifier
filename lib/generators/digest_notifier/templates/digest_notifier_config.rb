@@ -1,6 +1,8 @@
 require 'digest_notifier'
 
 DigestNotifier.configure do |config|
+  # Configure the e-mail address which will be sender for DigestEmails
+  config.mailer_sender               = "support@#{DigestNotifier.app_name.downcase}.com"
   #Delete digest enteries after sending email
   #false by default
   #config.delete_digest_after_sending = false
