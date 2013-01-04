@@ -9,6 +9,10 @@ namespace :digest_notifier do
     receivers.each do |receiver|
       digest_items = DigestEmailItem.pending_digest_items_for(receiver)
       DigestNotifier::DigestMailer.digest_notification(receiver, digest_items).deliver
+    end
+
+    receivers.each do |receiver|
+      digest_items = DigestEmailItem.pending_digest_items_for(receiver)
       if DigestNotifier.delete_digest_after_sending
         digest_items.destroy_all
       else
