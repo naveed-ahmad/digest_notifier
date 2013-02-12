@@ -4,7 +4,7 @@ module DigestNotifier
   # Digest email sender
   #
   mattr_accessor :mailer_sender
-  
+
   #Delete digest enteries after sending email
   #false by default
   mattr_accessor :delete_digest_after_sending
@@ -32,12 +32,12 @@ module DigestNotifier
       @app_name ||= Rails.application.class.parent.to_s
     end
   end
-  
+
   ActionMailer::Base.class_eval do
     extend DigestNotifier::MessageSending
   end
 end
-
 require 'app/mailer/digest_mailer'
+
 require 'digest_notifier/railtie' if defined?(Rails::Railtie)
 

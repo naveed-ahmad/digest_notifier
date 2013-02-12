@@ -16,7 +16,7 @@ class DigestEmailGroup < ActiveRecord::Base
   end
 
   def digest_recipients
-    I18n::t("digest_notifier.#{i18n_name_space}.recipient", :default => recipients).to_s.split(',')
+    I18n::t("digest_notifier.#{i18n_name_space}.recipient", :default => default_recipients).to_s.split(',')
   end
 
   def create_digest_items(performable)
@@ -44,4 +44,9 @@ class DigestEmailGroup < ActiveRecord::Base
       group
     end
   end
+
+protected
+  def default_recipients
+   recipients || I18n::t("digest_notifier.digest_mailer.recipient")
+  end 
 end

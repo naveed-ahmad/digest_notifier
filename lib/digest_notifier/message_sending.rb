@@ -9,7 +9,7 @@ module DigestNotifier
     end
 
     def method_missing(method, *args)
-      DigestEmailGroup.enqueue PerformableDigest.new(@target, method.to_sym, args, @options)
+      ::DigestEmailGroup.enqueue PerformableDigest.new(@target, method.to_sym, args, @options)
     end
   end
 
