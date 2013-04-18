@@ -20,7 +20,7 @@ class DigestEmailGroup < ActiveRecord::Base
   end
 
   def create_digest_items(performable)
-    digest_item = digest_email_items.build :payload => performable.payload
+    digest_item = digest_email_items.build :payload => performable.payload, :digest_resource => performable.digest_resource
     digest_recipients.each do |recipient|
       digest_item.digest_email_deliveries.build :receiver_email => recipient.gsub(' ', '')
     end
@@ -47,6 +47,6 @@ class DigestEmailGroup < ActiveRecord::Base
 
 protected
   def default_recipients
-   recipients || I18n::t("digest_notifier.digest_mailer.recipient")
+   I18n::t("digest_notifier.digest_mailer.recipient")
   end 
 end

@@ -2,6 +2,7 @@ class DigestEmailItem < ActiveRecord::Base
   serialize :payload, Array
 
   belongs_to :digest_email_group
+  belongs_to :digest_resource, :polymorphic => true
   has_many   :digest_email_deliveries, :dependent => :destroy
 
   class << self
