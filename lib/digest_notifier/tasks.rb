@@ -2,6 +2,11 @@ require 'digest_notifier'
 require 'app/mailer/digest_mailer'
 
 namespace :digest_notifier do
+   desc "Cleanup digest items"
+   task :clear => :environment do
+     [DigestEmailDelivery, DigestEmailGroup, DigestEmailItem].map(&:delete_all)
+   end
+
   desc "Send notification in one big digest email"
   task :send_notification_digest => :environment do
     receivers = DigestEmailDelivery.where(:sent_at => nil).group(:receiver_email).map &:receiver_email
