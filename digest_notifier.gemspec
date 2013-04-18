@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "digest_notifier"
-  s.version = "0.0.7"
+  s.version = "0.0.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Naveed Ahmad"]
-  s.date = "2013-02-12"
+  s.date = "2013-04-18"
   s.description = "pending"
   s.email = "naveedahmada036@gmail.com"
   s.extra_rdoc_files = [
@@ -37,8 +37,10 @@ Gem::Specification.new do |s|
     "lib/digest_notifier/performable_digest.rb",
     "lib/digest_notifier/railtie.rb",
     "lib/digest_notifier/tasks.rb",
+    "lib/generators/digest_notifier/add_digest_resource_generator.rb",
     "lib/generators/digest_notifier/install_generator.rb",
     "lib/generators/digest_notifier/templates/README",
+    "lib/generators/digest_notifier/templates/add_digest_resource_in_digest_email_items.rb",
     "lib/generators/digest_notifier/templates/create_digest_email_deliveries.rb",
     "lib/generators/digest_notifier/templates/create_digest_email_groups.rb",
     "lib/generators/digest_notifier/templates/create_digest_email_items.rb",
@@ -59,14 +61,12 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_development_dependency(%q<bundler>, [">= 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.8.4"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
     else
       s.add_dependency(%q<slim>, [">= 1.0.4"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_dependency(%q<bundler>, [">= 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
-      s.add_dependency(%q<rcov>, [">= 0"])
     end
   else
     s.add_dependency(%q<slim>, [">= 1.0.4"])
@@ -74,7 +74,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
     s.add_dependency(%q<bundler>, [">= 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
-    s.add_dependency(%q<rcov>, [">= 0"])
   end
 end
 
